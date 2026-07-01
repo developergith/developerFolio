@@ -32,11 +32,11 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-         run: |
-          aws s3 sync build/ s3://${{ secrets.s3_developerfolio_bucket_name }} --delete
+        run: |
+          aws s3 sync build/ s3://developerfolio-cloud --delete
 
       - name: Invalidate CloudFront Cache
         run: |
           aws cloudfront create-invalidation \
-          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-          --paths "/*"
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
