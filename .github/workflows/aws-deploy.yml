@@ -32,7 +32,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://developerfolio-cloud-tf --delete
+         run: |
+          aws s3 sync build/ s3://${{ secrets.s3_developerfolio_bucket_name }} --delete
 
       - name: Invalidate CloudFront Cache
         run: |
