@@ -25,3 +25,14 @@ yarn-error.log*
 #user generated content
 public/profile.json
 public/blogs.json
+
+
+# Environment
+.env
+.env.*
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
